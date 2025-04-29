@@ -2,6 +2,7 @@ package edu.icet.controller;
 
 import edu.icet.dto.Employee;
 import edu.icet.service.EmployeeService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +18,7 @@ public class EmployeeController {
     final EmployeeService service;
 
     @PostMapping("/add")
-    public void addEmployee(@RequestBody Employee employee){
+    public void addEmployee(@Valid @RequestBody Employee employee){
         service.addEmployee(employee);
     }
 
