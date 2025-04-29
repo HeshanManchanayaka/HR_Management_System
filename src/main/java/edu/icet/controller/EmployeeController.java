@@ -10,19 +10,19 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/api/employees")
 @CrossOrigin
 @RequiredArgsConstructor
 public class EmployeeController {
 
     final EmployeeService service;
 
-    @PostMapping("/add")
+    @PostMapping()
     public void addEmployee(@Valid @RequestBody Employee employee){
         service.addEmployee(employee);
     }
 
-    @GetMapping("/getAll")
+    @GetMapping()
     public List<Employee> getAll(){
        return service.getAll();
     }
@@ -37,7 +37,7 @@ public class EmployeeController {
         return  service.searchById(id);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public void deleteEmployee(@PathVariable Integer  id){
         service.deleteEmployee(id);
     }
